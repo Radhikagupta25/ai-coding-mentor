@@ -53,12 +53,8 @@ def parse_piston_response(data: dict) -> dict:
     return {
         "stdout": run_stage.get("stdout") or "",
         "stderr": _combine_stderr(compile_stage, run_stage),
-        "execution_time_ms": compile_time_ms + run_time_ms,
-        "compile_time_ms": compile_time_ms,
-        "run_time_ms": run_time_ms,
+        "execution_time": compile_time_ms + run_time_ms,
         "exit_code": run_stage.get("code"),
-        "language": data.get("language"),
-        "version": data.get("version"),
     }
 
 

@@ -1,4 +1,8 @@
+from typing import Literal
+
 from pydantic import BaseModel, Field
+
+Classification = Literal["syntax_error", "logic_error", "pass"]
 
 
 class SubmissionRequest(BaseModel):
@@ -15,23 +19,11 @@ class SubmissionRequest(BaseModel):
 
 
 class SubmissionResponse(BaseModel):
+    classification: Classification = Field(
+        description="Result classification: syntax_error, logic_error, or pass",
+    )
     stdout: str
     stderr: str
-    execution_time_ms: int = Field(
-        description="Total wall-clock execution time (compile + run) in milliseconds",
-    )
-    compile_time_ms: int = Field(
-        default=0,
-        description="Compile stage wall-clock time in milliseconds",
-    )
-    run_time_ms: int = Field(
-        default=0,
-        description="Run stage wall-clock time in milliseconds",
-    )
-    exit_code: int | None = None
-    language: str | None = None
-    version: str | None = None
-    output_matches: bool | None = Field(
-        default=None,
-        description="Present when expected_output was provided; True if stdout matches",
+    execution_time: int = Field(
+        description="Total compile and run wall-clock time in milliseconds",
     )

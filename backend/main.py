@@ -4,8 +4,10 @@ import httpx
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 
-from piston import PISTON_REQUEST_TIMEOUT, execute_on_piston
+from exceptions import PistonExecutionError, PistonTimeoutError, PistonUnavailableError
+from piston import PISTON_REQUEST_TIMEOUT
 from schemas import SubmissionRequest, SubmissionResponse
+from submission_service import process_submission
 
 
 @asynccontextmanager
@@ -36,10 +38,6 @@ async def health_check() -> dict[str, str]:
     return {"status": "ok", "message": "Backend is running"}
 
 
-def _normalize_output(text: str) -> str:
-    return text.rstrip("\n\r\t ")
-
-
 @app.post("/api/submit", response_model=SubmissionResponse)
 async def submit_code(
     submission: SubmissionRequest,
@@ -48,42 +46,19 @@ async def submit_code(
     client: httpx.AsyncClient = request.app.state.http_client
 
     try:
-        result = await execute_on_piston(
-            client=client,
-            language=submission.language,
-            version=submission.version,
-            code=submission.code,
-        )
-    except httpx.ConnectError as exc:
+        return await process_submission(client, submission)
+    except PistonUnavailableError as exc:
         raise HTTPException(
             status_code=503,
             detail="Unable to reach the Piston code execution engine at http://localhost:2000",
         ) from exc
-    except httpx.TimeoutException as exc:
+    except PistonTimeoutError as exc:
         raise HTTPException(
             status_code=504,
             detail="Piston code execution timed out",
         ) from exc
-    except httpx.HTTPStatusError as exc:
+    except PistonExecutionError as exc:
         raise HTTPException(
             status_code=502,
-            detail=str(exc),
+            detail=exc.message,
         ) from exc
-
-    output_matches: bool | None = None
-    if submission.expected_output is not None:
-        output_matches = _normalize_output(result["stdout"]) == _normalize_output(
-            submission.expected_output
-        )
-
-    return SubmissionResponse(
-        stdout=result["stdout"],
-        stderr=result["stderr"],
-        execution_time_ms=result["execution_time_ms"],
-        compile_time_ms=result["compile_time_ms"],
-        run_time_ms=result["run_time_ms"],
-        exit_code=result["exit_code"],
-        language=result["language"],
-        version=result["version"],
-        output_matches=output_matches,
-    )
