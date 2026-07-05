@@ -140,7 +140,7 @@ const Login = () => {
                         onClick={handleLogin}
 >>>>>>> Stashed changes
                         className="w-full rounded-xl bg-cyan-400 py-3 font-semibold text-[#020617] transition hover:bg-cyan-300"
-                    >
+                  >
                         Sign In
                     </button>
 
@@ -148,9 +148,12 @@ const Login = () => {
 
                 <p className="mt-8 text-center text-sm text-gray-400">
                     Don't have an account?{" "}
-                    <span className="cursor-pointer text-cyan-400 hover:text-cyan-300">
+                    <Link
+                        to="/signup"
+                        className="text-cyan-400 hover:text-cyan-300"
+                    >
                         Sign Up
-                    </span>
+                    </Link>
                 </p>
 
             </motion.div>

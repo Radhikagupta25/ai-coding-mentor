@@ -1,72 +1,10 @@
-import { motion } from "framer-motion";
-<<<<<<< Updated upstream
 
-const Signup = () => {
-=======
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        fullName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-    });
-
-    const [errors, setErrors] = useState({});
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
-    const handleSignup = () => {
-
-        const newErrors = {};
-
-        if (!formData.fullName.trim()) {
-            newErrors.fullName = "Full name is required";
-        }
-
-        if (!formData.email.trim()) {
-            newErrors.email = "Email is required";
-        } else if (
-            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
-        ) {
-            newErrors.email = "Enter a valid email";
-        }
-
-        if (formData.password.length < 6) {
-            newErrors.password =
-                "Password must be at least 6 characters";
-        }
-
-        if (formData.password !== formData.confirmPassword) {
-            newErrors.confirmPassword =
-                "Passwords do not match";
-        }
-
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            return;
-        }
-
-        setErrors({});
-        localStorage.setItem(
-            "user",
-            JSON.stringify({
-                fullName: formData.fullName,
-                email: formData.email,
-                password: formData.password,
-            })
-        );
-
-        navigate("/login");
-    };
->>>>>>> Stashed changes
     return (
         <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020617] px-6">
 
@@ -197,12 +135,9 @@ const Signup = () => {
                     </div>
 
                     <button
-<<<<<<< Updated upstream
-                        type="submit"
-=======
+
                         type="button"
                         onClick={handleSignup}
->>>>>>> Stashed changes
                         className="w-full rounded-xl bg-cyan-400 py-3 font-semibold text-[#020617] transition hover:bg-cyan-300"
                     >
                         Create Account
@@ -212,9 +147,12 @@ const Signup = () => {
 
                 <p className="mt-8 text-center text-sm text-gray-400">
                     Already have an account?{" "}
-                    <span className="cursor-pointer text-cyan-400 hover:text-cyan-300">
+                    <Link
+                        to="/login"
+                        className="text-cyan-400 hover:text-cyan-300"
+                    >
                         Sign In
-                    </span>
+                    </Link>
                 </p>
 
             </motion.div>
