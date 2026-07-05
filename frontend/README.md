@@ -15,10 +15,10 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=6C63FF&center=true&vCenter=true&width=650&lines=Debug+smarter%2C+not+harder.;Socratic+hints+instead+of+copy-paste+fixes.;Track+mastery+across+Arrays%2C+Trees%2C+Graphs+%26+DP.;Powered+by+FastAPI+%2B+React+%2B+Cognee+%2B+Piston." alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=6C63FF&center=true&vCenter=true&width=700&height=30&lines=Debug+smarter%2C+not+harder.;Step-by-step+hints+instead+of+copy-paste+fixes.;Track+mastery+across+Arrays%2C+Trees%2C+Graphs+%26+DP.;Powered+by+FastAPI+%2B+React+%2B+Cognee+%2B+Piston." alt="Typing SVG" />
 </p>
 
-**AI Coding Mentor** is an intelligent, agentic tutoring platform built to help students master coding concepts through guided, Socratic feedback rather than handed-out solutions.
+**AI Coding Mentor** is an intelligent, agentic tutoring platform built to help students master coding concepts through guided, step-by-step feedback rather than handed-out solutions.
 
 It brings together:
 - A **React frontend** for an interactive coding workspace
@@ -49,7 +49,7 @@ It brings together:
 | Feature | Description |
 | :--- | :--- |
 | **Practice & Exam Modes** | Solve coding challenges in Java, C++, Python, or JavaScript |
-| **Socratic Tutoring Feedback** | Instead of copy-paste solutions, the AI analyzes syntax/runtime results and guides students to find their own fix |
+| **Guided Hint Feedback** | Instead of copy-paste solutions, the AI analyzes syntax/runtime results and guides students to find their own fix |
 | **Mistake Memory & Mastery Graph** | Cognee maps past failures and successes into a semantic knowledge graph, resurfacing relevant past lessons when similar bugs recur |
 | **Weakness Topic Detector** | A React Flow–powered "Brain Graph" dashboard visualizes mastery (Strong / Average / Weak) across topics like Arrays, Strings, Trees, Graphs, and DP |
 
@@ -99,7 +99,7 @@ graph TD
     BE -->|4. Process & Classify Attempt| SMS
     SMS -->|5. Query Past Attempts| CS
     CS -.->|6. Semantic Graph Search| LLM
-    SMS -->|7. Socratic Hint Prompt| LLM
+    SMS -->|7. Guided Hint Prompt| LLM
     SMS -->|8. Record New Attempt| CS
     SMS -->|9. Update Local Stats Cache| BE
     BE -->|10. Return Response & Feedback| FE
@@ -250,7 +250,7 @@ Before submitting a Pull Request, confirm that:
 - [ ] Support for additional languages (Go, Rust, TypeScript)
 - [ ] Instructor dashboard for classroom-wide mastery tracking
 - [ ] Exportable progress reports (PDF/CSV)
-- [ ] Voice-based Socratic hints
+- [ ] Voice-based guided hints
 - [ ] Multi-user collaborative debugging sessions
 
 > Have an idea? Open an [issue](../../issues) or start a [discussion](../../discussions).
