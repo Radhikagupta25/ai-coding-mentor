@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  <a href="https://ai-coding-mentor-1-1n1q.onrender.com" target="_blank"><img alt="Live App" src="https://img.shields.io/badge/Live%20Demo-Render-brightgreen?style=for-the-badge&logo=render"></a>
+</p>
+
+<p align="center">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg">
   <img alt="Python" src="https://img.shields.io/badge/python-3.10%2B-blue">
   <img alt="Node" src="https://img.shields.io/badge/node-18%2B-green">
@@ -25,6 +29,8 @@ It brings together:
 - A **FastAPI backend** for orchestrating submissions and feedback
 - A **Dockerized Piston sandbox** for safe, isolated code execution
 - A **Cognee-powered graph memory system** that tracks student mistakes and mastery over time using LLM-driven embeddings and vector search
+
+* **Live Frontend App:** [https://ai-coding-mentor-1-1n1q.onrender.com](https://ai-mentor-frontend.onrender.com)
 
 ---
 
