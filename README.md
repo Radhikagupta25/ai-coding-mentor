@@ -30,7 +30,6 @@ It brings together:
 - A **Dockerized Piston sandbox** for safe, isolated code execution
 - A **Cognee-powered graph memory system** that tracks student mistakes and mastery over time using LLM-driven embeddings and vector search
 
-* **Live Frontend App:** [https://ai-coding-mentor-1-1n1q.onrender.com](https://ai-mentor-frontend.onrender.com)
 
 ---
 
