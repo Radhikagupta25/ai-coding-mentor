@@ -94,8 +94,8 @@ export function EditorProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
   const [mode, setMode] = useState("CP");
-  const [language, setLanguage] = useState("java");
-  const [code, setCode] = useState(templates.CP.java);
+  const [language, setLanguage] = useState("python");
+  const [code, setCode] = useState(templates.CP.python);
   const [studentId] = useState(getOrCreateStudentId);
 
   const [result, setResult] = useState({
