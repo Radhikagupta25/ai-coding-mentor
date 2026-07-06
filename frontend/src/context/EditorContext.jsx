@@ -96,6 +96,7 @@ export function EditorProvider({ children }) {
   const [mode, setMode] = useState("CP");
   const [language, setLanguage] = useState("python");
   const [code, setCode] = useState(templates.CP.python);
+  const [customInput, setCustomInput] = useState("");
   const [studentId] = useState(getOrCreateStudentId);
 
   const [result, setResult] = useState({
@@ -139,6 +140,7 @@ export function EditorProvider({ children }) {
       const data = await apiSubmitCode({
         language,
         code,
+        stdin: customInput,
         student_id: studentId,
       });
 
@@ -190,6 +192,7 @@ export function EditorProvider({ children }) {
       const data = await apiSubmitCode({
         language,
         code,
+        stdin: customInput,
         student_id: studentId,
       });
 
@@ -269,6 +272,8 @@ export function EditorProvider({ children }) {
         changeMode,
         setCode,
         runCode,
+        customInput,
+        setCustomInput,
         submitCode,
       }}
     >

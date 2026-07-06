@@ -9,15 +9,27 @@ export const problems = [
 
         starterCode: {
             java: `class Solution {
-
+    public int[] twoSum(int[] nums, int target) {
+        return new int[]{};
+    }
 }`,
-            cpp: `class Solution {
 
+            cpp: `#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        return {};
+    }
 };`,
-            python: `class Solution:
-    pass`,
-            javascript: `function solve() {
 
+            python: `class Solution:
+    def twoSum(self, nums, target):
+        return []`,
+
+            javascript: `function twoSum(nums, target) {
+    return [];
 }`,
         },
     },
@@ -32,15 +44,27 @@ export const problems = [
 
         starterCode: {
             java: `class Solution {
-
+    public int[] twoSum(int[] nums, int target) {
+        return new int[]{};
+    }
 }`,
-            cpp: `class Solution {
 
+            cpp: `#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        return {};
+    }
 };`,
-            python: `class Solution:
-    pass`,
-            javascript: `function solve() {
 
+            python: `class Solution:
+    def twoSum(self, nums, target):
+        return []`,
+
+            javascript: `function twoSum(nums, target) {
+    return [];
 }`,
         },
     },
@@ -55,15 +79,27 @@ export const problems = [
 
         starterCode: {
             java: `class Solution {
-
+    public int[] twoSum(int[] nums, int target) {
+        return new int[]{};
+    }
 }`,
-            cpp: `class Solution {
 
+            cpp: `#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        return {};
+    }
 };`,
-            python: `class Solution:
-    pass`,
-            javascript: `function solve() {
 
+            python: `class Solution:
+    def twoSum(self, nums, target):
+        return []`,
+
+            javascript: `function twoSum(nums, target) {
+    return [];
 }`,
         },
     },
@@ -77,16 +113,28 @@ export const problems = [
             "Design and implement an LRU Cache data structure.",
 
         starterCode: {
-            java: `class LRUCache {
-
+            java: `class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        return new int[]{};
+    }
 }`,
-            cpp: `class LRUCache {
 
+            cpp: `#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        return {};
+    }
 };`,
-            python: `class LRUCache:
-    pass`,
-            javascript: `class LRUCache {
 
+            python: `class Solution:
+    def twoSum(self, nums, target):
+        return []`,
+
+            javascript: `function twoSum(nums, target) {
+    return [];
 }`,
         },
     },
