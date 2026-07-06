@@ -33,12 +33,8 @@ export default function DashboardPanel({ problem }) {
                     </div>
 
                     <p className="text-gray-300 mt-6 leading-8 text-lg">
-                        Given an array of integers{" "}
-                        <span className="text-cyan-300 font-semibold">nums</span> and an
-                        integer{" "}
-                        <span className="text-violet-300 font-semibold">target</span>,
-                        return the indices of the two numbers such that they add up to the
-                        target.
+                        {problem?.description}
+
                     </p>
 
                     <div className="flex gap-6 mt-8">
@@ -65,7 +61,7 @@ export default function DashboardPanel({ problem }) {
                 <div className="col-span-8">
                     <div className="rounded-3xl border border-white/10 bg-white/5 min-h-[620px] p-6">
                         <h2 className="text-2xl font-bold mb-4">Code Editor</h2>
-                        <CodeEditor />
+                        <CodeEditor problem={problem} />
                     </div>
                 </div>
 

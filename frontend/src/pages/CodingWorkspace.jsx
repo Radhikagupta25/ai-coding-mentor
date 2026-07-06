@@ -1,6 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import { useState } from "react";
-
+import { problems } from "../data/problems";
 import WorkspaceSidebar from "../components/layout/WorkspaceSidebar";
 
 import DashboardPanel from "../components/workspace/DashboardPanel";
@@ -12,13 +12,7 @@ import SettingsPanel from "../components/workspace/SettingsPanel";
 export default function CodingWorkspace() {
 
   const [activeTab, setActiveTab] = useState("dashboard");
-
-  const [selectedProblem, setSelectedProblem] = useState({
-    id: 1,
-    title: "Two Sum",
-    difficulty: "Easy",
-    topic: "Arrays",
-  });
+  const [selectedProblem, setSelectedProblem] = useState(problems[0]);
 
   return (
     <div className="min-h-screen text-white relative z-10">

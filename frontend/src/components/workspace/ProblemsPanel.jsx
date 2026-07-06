@@ -1,37 +1,9 @@
+import { problems } from "../../data/problems";
 export default function ProblemsPanel({
     setActiveTab,
     setSelectedProblem,
 }) {
-    const problems = [
-        {
-            id: 1,
-            title: "Two Sum",
-            difficulty: "Easy",
-            topic: "Arrays",
-            solved: true,
-        },
-        {
-            id: 2,
-            title: "Valid Parentheses",
-            difficulty: "Easy",
-            topic: "Stack",
-            solved: false,
-        },
-        {
-            id: 3,
-            title: "Merge Intervals",
-            difficulty: "Medium",
-            topic: "Intervals",
-            solved: false,
-        },
-        {
-            id: 4,
-            title: "LRU Cache",
-            difficulty: "Hard",
-            topic: "Design",
-            solved: false,
-        },
-    ];
+
 
     return (
         <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
