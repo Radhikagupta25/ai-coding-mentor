@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { signup } from "../lib/firebase/auth";
+import { createUserDocument } from "../lib/firebase/firestore";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -18,7 +20,7 @@ const Signup = () => {
             [e.target.name]: e.target.value,
         });
     };
-    const handleSignup = () => {
+    const handleSignup = async () => {
 
         const newErrors = {};
 
@@ -50,14 +52,25 @@ const Signup = () => {
         }
 
         setErrors({});
-        localStorage.setItem(
-            "user",
-            JSON.stringify({
-                fullName: formData.fullName,
-                email: formData.email,
-                password: formData.password,
-            })
-        );
+        try {
+
+            const user = await signup(
+                formData.fullName,
+                formData.email,
+                formData.password
+            );
+
+            await createUserDocument(user);
+
+            navigate("/login");
+        }
+        catch (error) {
+
+            setErrors({
+                firebase: error.message,
+            });
+
+        }
 
         navigate("/login");
     };
@@ -198,6 +211,11 @@ const Signup = () => {
                     >
                         Create Account
                     </button>
+                    {errors.firebase && (
+                        <p className="text-red-400 text-sm mt-2">
+                            {errors.firebase}
+                        </p>
+                    )}
 
                 </form>
 
