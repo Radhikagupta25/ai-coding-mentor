@@ -71,8 +71,6 @@ const Signup = () => {
             });
 
         }
-
-        navigate("/login");
     };
     return (
         <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#020617] px-6">
